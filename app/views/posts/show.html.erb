@@ -1,7 +1,12 @@
 <h2><%= @post.title %></h2>
 
 <%= @post.text %>
-
+<h3>Hall of fame :: Recent Commenters</h3>
+<ul><%= raw @post.recent_commenters %></ul>
+<h3>All Comments</h3>
+<%= comments(@post)%>
 <% if logged_in? %>
-  <%= link_to "New Comment", new_post_comment_path(@post) %>
+  <h3>Your Comment</h3>
+  <%= render new %>
 <% end %>
+
